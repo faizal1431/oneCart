@@ -5,7 +5,7 @@ const authRoutes = express.Router()
 
 authRoutes.post("/registration",registration)
 authRoutes.post("/login",login)
-authRoutes.get("/logout",logOut)
+authRoutes.post("/logout",logOut)
 authRoutes.post("/googlelogin",googleLogin)
 authRoutes.post("/adminlogin",adminLogin)
 

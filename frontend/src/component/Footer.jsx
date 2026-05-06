@@ -10,7 +10,7 @@ function Footer() {
                     <p className='text-[19px] md:text-[20px] text-[black] '>OneCart</p>
             
                 </div>
-                <p className='text-[15px] text-[#1e2223] hidden md:block'>OneCart is your all-in-one online shopping destination, offering top-quality products, unbeatable deals, and fast delivery—all backed by trusted service designed to make your life easier every day.</p>
+                <p className='text-[15px] text-[#1e2223] hidden md:block'>OneCart is your all-in-one online shopping destination, offering top-quality products, unbeatable deals, and fast delivery—all backed by trusted service designed to make your life easier .</p>
                     <p className='text-[15px] text-[#1e2223] flex md:hidden'>Fast. Easy. Reliable. OneCart Shopping</p>
 
                 
@@ -34,16 +34,17 @@ function Footer() {
 
                     </div>
                      <ul>
-                         <li className='text-[15px] text-[#1e2223] '>+91-9876543210</li>
-                        <li className='text-[15px] text-[#1e2223] '>contact@onecart.com</li>
-                        <li className='text-[15px] text-[#1e2223] hidden md:block'>+1-123-456-7890</li>
-                        <li className='text-[15px] text-[#1e2223] hidden md:block'>admin@onecart.com</li>
+                         <li className='text-[15px] text-[#1e2223] '>8470970571</li>
+                        <li className='text-[15px] text-[#1e2223] '>faizal14august@gmail.com</li>
+                        <li className='text-[15px] text-[#1e2223] hidden md:block'></li>
+                        <li className='text-[15px] text-[#1e2223] hidden md:block'>9565282681/7880346254</li>
                     </ul>
                 </div>
 
         </div>
-        <div className='w-[100%] h-[1px] bg-slate-400'></div>
-        <div className='w-[100%] h-[5vh] bg-[#dbfcfcec] flex items-center justify-center'>Copyright 2025@onecart.com-All Rights Reserved</div>
+        <div className='w-[100%] h-[1px] bg-slate-400 '></div>
+        
+        <div className='w-[100%] h-[5vh] bg-[#dbfcfcec] flex items-center justify-center'></div>
       
     </div>
   )

@@ -26,22 +26,24 @@ function Home() {
   
   return (
     <div className='overflow-x-hidden relative top-[70px]'>
-    <div className=' w-[100vw] lg:h-[100vh] md:h-[50vh] sm:h-[30vh]   bg-gradient-to-l from-[#141414] to-[#0c2025] '>
+      <div className='w-[100vw] lg:h-[100vh] md:h-[50vh] sm:h-[30vh] bg-gradient-to-br from-[#0a0a0a] via-[#1a0a0f] to-[#3d1a24]'
+        style={{
+          background: 'linear-gradient(135deg, #0a0a0a 0%, #1c0a14 25%, #3d1224 50%, #b76e79 75%, #e8a598 100%)'
+        }}
+      >
 
-      <Backgound heroCount={heroCount}/>
-      <Hero
-      heroCount={heroCount}
-      setHeroCount={setHeroCount}
-      heroData={heroData[heroCount]}
-      />
+        <Backgound heroCount={heroCount}/>
+        <Hero
+          heroCount={heroCount}
+          setHeroCount={setHeroCount}
+          heroData={heroData[heroCount]}
+        />
 
-
-     
-    </div>
-    <Product/>
-    <OurPolicy/>
-    <NewLetterBox/>
-    <Footer/>
+      </div>
+      <Product/>
+      <OurPolicy/>
+      <NewLetterBox/>
+      <Footer/>
     </div>
   )
 }

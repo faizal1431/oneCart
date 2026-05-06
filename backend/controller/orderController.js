@@ -77,28 +77,33 @@ export const placeOrderRazorpay = async (req,res) => {
 }
 
 
-export const verifyRazorpay = async (req,res) =>{
+export const verifyRazorpay = async (req, res) => {
     try {
         const userId = req.userId
-        const {razorpay_order_id} = req.body
-        const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
-        if(orderInfo.status === 'paid'){
-            await Order.findByIdAndUpdate(orderInfo.receipt,{payment:true});
-            await User.findByIdAndUpdate(userId , {cartData:{}})
-            res.status(200).json({message:'Payment Successful'
-            })
-        }
-        else{
-            res.json({message:'Payment Failed'
-            })
+        const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body
+
+        // ✅ Verify signature using crypto
+        const crypto = await import('crypto')
+        const sign = razorpay_order_id + "|" + razorpay_payment_id
+        const expectedSign = crypto.default
+            .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+            .update(sign)
+            .toString("hex")
+
+        if (razorpay_signature === expectedSign) {
+            // ✅ Find order by receipt (which is the order _id)
+            const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
+            await Order.findByIdAndUpdate(orderInfo.receipt, { payment: true })
+            await User.findByIdAndUpdate(userId, { cartData: {} })
+            return res.status(200).json({ message: 'Payment Successful' })
+        } else {
+            return res.status(400).json({ message: 'Payment Failed' })
         }
     } catch (error) {
         console.log(error)
-         res.status(500).json({message:error.message
-            })
+        res.status(500).json({ message: error.message })
     }
 }
-
 
 
 
